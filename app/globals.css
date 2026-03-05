@@ -1,0 +1,429 @@
+@import "tailwindcss";
+
+/* ============================= */
+/* Root Variables */
+/* ============================= */
+
+:root {
+  --background: #0B0F19;
+  --foreground: #E5E7EB;
+}
+
+/* ============================= */
+/* Base Styles */
+/* ============================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  min-height: 100vh;
+}
+
+/* ============================= */
+/* Scrollbar */
+/* ============================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0B0F19;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1f2937;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #374151;
+}
+
+/* ============================= */
+/* Selection */
+/* ============================= */
+
+::selection {
+  background: rgba(59, 130, 246, 0.3);
+  color: white;
+}
+
+/* ============================= */
+/* Animations */
+/* ============================= */
+
+@keyframes shimmer {
+  0% { transform: translateX(-120%) skewX(-20deg); }
+  100% { transform: translateX(240%) skewX(-20deg); }
+}
+
+@keyframes orbit-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes wow-frame {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ============================= */
+/* Orbit Logo */
+/* ============================= */
+
+.orbit-logo-ring {
+  width: 16px;
+  height: 16px;
+  border: 1px solid rgba(96,165,250,.55);
+  border-radius: 9999px;
+  animation: orbit-spin 7s linear infinite;
+  opacity: .9;
+}
+
+.orbit-logo-ring::after {
+  content:"";
+  width:4px;
+  height:4px;
+  background:rgba(147,197,253,.95);
+  border-radius:9999px;
+  position:absolute;
+  top:-2px;
+  left:50%;
+  transform:translateX(-50%);
+  box-shadow:0 0 12px rgba(59,130,246,.6);
+}
+
+/* ============================= */
+/* CTA Premium */
+/* ============================= */
+
+.cta-premium {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 16px;
+  border-radius: 14px;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+
+  background: linear-gradient(90deg,#2563eb,#3b82f6);
+  box-shadow: 0 14px 40px -18px rgba(59,130,246,.8);
+
+  border: 1px solid rgba(255,255,255,.08);
+  overflow: hidden;
+  transition: all .25s ease;
+}
+
+.cta-premium:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 55px -20px rgba(59,130,246,1);
+}
+
+.cta-premium::after {
+  content:"";
+  position:absolute;
+  top:0;
+  left:-45%;
+  width:45%;
+  height:100%;
+  background:rgba(255,255,255,.25);
+  transform:skewX(-20deg);
+  filter:blur(2px);
+  animation: shimmer 3s infinite;
+  opacity:.5;
+}
+
+/* ============================= */
+/* WOW Header (احترافي عالمي) */
+/* ============================= */
+
+.wow-header{
+  --mx: 50%;
+  --my: 50%;
+
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+
+  border: 1px solid rgba(255,255,255,.08);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(15,23,42,.75),
+      rgba(15,23,42,.55)
+    );
+
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+
+  box-shadow:
+    0 30px 80px -30px rgba(0,0,0,.9),
+    inset 0 1px 0 rgba(255,255,255,.05);
+
+  transition: background .4s ease, box-shadow .4s ease;
+}
+
+/* Animated gradient border */
+
+.wow-header::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  border-radius:24px;
+  padding:1px;
+
+  background: conic-gradient(
+    from 180deg,
+    rgba(59,130,246,.65),
+    rgba(168,85,247,.45),
+    rgba(59,130,246,.65)
+  );
+
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  opacity:.6;
+  pointer-events:none;
+  animation:wow-frame 10s linear infinite;
+}
+
+/* Spotlight subtle */
+
+.wow-header::after{
+  content:"";
+  position:absolute;
+  inset:-20px;
+  background:
+    radial-gradient(
+      280px 220px at var(--mx) var(--my),
+      rgba(59,130,246,.18),
+      transparent 60%
+    );
+  opacity:.9;
+  pointer-events:none;
+}
+
+/* Inner layout */
+
+.wow-header__inner{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  height:56px;
+  padding:0 18px;
+}
+
+.wow-header__inner--scrolled{
+  height:52px;
+}
+
+.wow-header--top{
+  background: rgba(15,23,42,.55);
+}
+
+.wow-header--scrolled{
+  background: rgba(15,23,42,.85);
+}
+
+/* ============================= */
+/* Nav Items */
+/* ============================= */
+
+.wow-nav-item{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:8px 14px;
+  font-size:14px;
+  border-radius:14px;
+  transition:all .25s ease;
+  user-select:none;
+}
+
+.wow-nav-item--idle{
+  color:rgba(255,255,255,.7);
+}
+
+.wow-nav-item--idle:hover{
+  color:white;
+  background:rgba(255,255,255,.07);
+}
+
+.wow-nav-item--active{
+  color:white;
+}
+
+.wow-active-pill{
+  position:absolute;
+  inset:0;
+  border-radius:14px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow:
+    0 10px 25px -18px rgba(59,130,246,.6),
+    inset 0 1px 0 rgba(255,255,255,.1);
+  z-index:0;
+}
+
+/* ============================= */
+/* Reduce Motion */
+/* ============================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  .orbit-logo-ring,
+  .cta-premium::after,
+  .wow-header::before {
+    animation: none;
+  }
+}
+
+/* ============================= */
+/* Cinematic Hero */
+/* ============================= */
+
+/* ============================= */
+/* ULTRA HERO EFFECT */
+/* ============================= */
+
+.hero-cinematic {
+  --mx: 50%;
+  --my: 50%;
+  position: relative;
+  background: linear-gradient(
+    120deg,
+    #0b0f19,
+    #0f172a,
+    #111827,
+    #0b0f19
+  );
+  background-size: 300% 300%;
+  animation: heroGradientMove 18s ease infinite;
+}
+
+@keyframes heroGradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Mouse spotlight */
+.hero-cinematic::after {
+  content: "";
+  position: absolute;
+  inset: -10px;
+  background:
+    radial-gradient(
+      300px 200px at var(--mx) var(--my),
+      rgba(59,130,246,.18),
+      transparent 60%
+    );
+  pointer-events: none;
+  transition: background 0.1s ease;
+}
+
+/* Title depth */
+.hero-title span:first-child {
+  color: #ffffff;
+  text-shadow:
+    0 10px 60px rgba(0,0,0,.75),
+    0 0 60px rgba(255,255,255,.04);
+}
+
+/* Animated gradient text */
+.hero-gradient-text {
+  background: linear-gradient(
+    90deg,
+    #60a5fa,
+    #3b82f6,
+    #8b5cf6,
+    #3b82f6,
+    #60a5fa
+  );
+  background-size: 300% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: gradientShift 6s linear infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 0; }
+  100% { background-position: 300% 0; }
+}
+
+/* ============================= */
+/* Animated Purple → White Text */
+/* ============================= */
+.hero-gradient-move {
+  background: linear-gradient(
+    90deg,
+    #7c3aed 0%,
+    #3b82f6 40%,
+    #ffffff 50%,
+    #3b82f6 60%,
+    #7c3aed 100%
+  );
+
+  background-size: 200% 100%;
+  background-position: 100% 0%;
+
+  animation: gradientFlow 5s linear infinite;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  display: inline-block;
+  padding-bottom: 0.12em;
+}
+
+@keyframes gradientFlow {
+  from {
+    background-position: 100% 0%;
+  }
+  to {
+    background-position: -100% 0%;
+  }
+}
+
+@keyframes neonBorderMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+.neon-border {
+  background: linear-gradient(
+    90deg,
+    #7c3aed,
+    #3b82f6,
+    #60a5fa,
+    #3b82f6,
+    #7c3aed
+  );
+
+  background-size: 200% 200%;
+  animation: neonBorderMove 5s linear infinite;
+
+  filter: brightness(0.95);
+}
+
+
