@@ -23,10 +23,10 @@ const fadeUp = {
 
 export default function Home() {
 const [sent, setSent] = useState(false);
-const handleSubmit = async (e) => {
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();
 
-  const form = e.target;
+  const form = e.currentTarget as HTMLFormElement;
   const data = new FormData(form);
 
   await fetch("https://formspree.io/f/mlgprjdo", {
