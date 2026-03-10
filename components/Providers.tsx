@@ -12,7 +12,7 @@ export default function Providers({ children }: { children: React.ReactNode }) {
     const lenis = new Lenis({
       duration: 1.15,
       smoothWheel: true,
-      smoothTouch: false,
+      
     });
 
     let raf = 0;
