@@ -106,7 +106,7 @@ export default function HeroScene() {
         gl={{
           antialias: true,
           alpha: true,
-          physicallyCorrectLights: true,
+          
           toneMapping: THREE.ACESFilmicToneMapping,
           toneMappingExposure: 1.2,
         }}
