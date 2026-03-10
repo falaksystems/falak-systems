@@ -21,16 +21,23 @@ export const metadata: Metadata = {
   },
   description:
     "Slimme IT- & AI-systemen voor groeiende organisaties.",
-  metadataBase: new URL("https://falak-systems.com"),
+
+  metadataBase: new URL("https://falak-systems.vercel.app"),
+
+  verification: {
+    google: "kQBOIwpusyNJglIQTaaX0GOXML_359NI7ibyqtCidOg",
+  },
+
   openGraph: {
     title: "Falak Systems",
     description:
       "Slimme IT- & AI-systemen voor groeiende organisaties.",
-    url: "https://falak-systems.com",
+    url: "https://falak-systems.vercel.app",
     siteName: "Falak Systems",
     locale: "nl_NL",
     type: "website",
   },
+
   twitter: {
     card: "summary_large_image",
     title: "Falak Systems",
