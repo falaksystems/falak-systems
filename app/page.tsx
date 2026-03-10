@@ -85,7 +85,7 @@ setTimeout(() => {
       {/* ================= HERO ================= */}
 <section
   className="hero-cinematic relative overflow-hidden rounded-3xl border border-white/10 p-10 backdrop-blur-xl sm:p-14"
-  onMouseMove={(e) => {
+  onMouseMove={(e: React.MouseEvent<HTMLElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
