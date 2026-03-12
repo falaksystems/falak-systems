@@ -50,10 +50,10 @@ function Earth({ sunDirection }: { sunDirection: THREE.Vector3 }) {
   const cloudsRef = useRef<THREE.Mesh>(null);
 
   const [dayMap, nightMap, normalMap, cloudsMap] = useTexture([
-    "/textures/8k_earth_daymap.jpg",
-    "/textures/8k_earth_nightmap.jpg",
-    "/textures/8k_earth_normal.jpg",
-    "/textures/8k_earth_clouds.jpg",
+    "/textures/8k_earth_daymap.webp",
+    "/textures/8k_earth_nightmap.webp",
+    "/textures/8k_earth_normal.webp",
+    "/textures/8k_earth_clouds.webp",
   ]);
 
   useFrame(() => {
@@ -64,7 +64,7 @@ function Earth({ sunDirection }: { sunDirection: THREE.Vector3 }) {
   return (
     <group>
       <mesh ref={earthRef} castShadow receiveShadow>
-        <sphereGeometry args={[1.35, 256, 256]} />
+        <sphereGeometry args={[1.35, 128, 128]} />
         <meshStandardMaterial
           map={dayMap}
           normalMap={normalMap}
@@ -134,7 +134,7 @@ export default function HeroScene() {
         <Stars
           radius={120}
           depth={80}
-          count={7000}
+          count={2500}
           factor={4}
           fade
           speed={0.15}
