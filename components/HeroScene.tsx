@@ -91,6 +91,17 @@ function Earth({ sunDirection }: { sunDirection: THREE.Vector3 }) {
   );
 }
 
+function ResponsiveEarth({ sunDirection }: { sunDirection: THREE.Vector3 }) {
+  const { size } = useThree();
+  const isMobile = size.width < 768;
+
+  return (
+    <group position={isMobile ? [0, -0.3, 0] : [3.2, 0, 0]}>
+      <Earth sunDirection={sunDirection} />
+    </group>
+  );
+}
+
 /* =========================================
    Hero Scene
 ========================================= */
@@ -140,10 +151,7 @@ export default function HeroScene() {
           speed={0.15}
         />
 
-        {/* Earth */}
-        <group position={[3.2, 0, 0]}>
-          <Earth sunDirection={sunPosition} />
-        </group>
+        <ResponsiveEarth sunDirection={sunPosition} />
       </Canvas>
 
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0B0F19]/70" />
