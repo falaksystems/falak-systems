@@ -96,7 +96,10 @@ function ResponsiveEarth({ sunDirection }: { sunDirection: THREE.Vector3 }) {
   const isMobile = size.width < 768;
 
   return (
-    <group position={isMobile ? [0, -0.3, 0] : [3.2, 0, 0]}>
+    <group
+      position={isMobile ? [0, -0.2, 0] : [3.2, 0, 0]}
+      scale={isMobile ? 0.75 : 1}
+    >
       <Earth sunDirection={sunDirection} />
     </group>
   );
